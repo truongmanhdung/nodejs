@@ -1,0 +1,19 @@
+bài 1: Khởi đầu:
+- cài package:
+    + npm init: cài khởi đầu lúc nào cx phải gõ trc
+    + sau đó cài package express bằng câu lệnh: 
+        npm install express --save
+- tạo file index.js bao gồm các câu lệnh ban đầu
+    var express = require('express'); sử dụng thư viện express
+    var app = express(); tạo hàm khởi đầu
+
+    var port = 3000; tạo cổng host truy câu host:3000
+    app.get('/', function(request, response){ //truyền get request lên http để gọi ra response trả về
+        response.send("hello dũng"); // trả về response(trả về hiển thị lên màn hình)
+    });
+    app.listen(port, function (){ // đọc dữ liệu truyền vào
+        console.log('Server listening on port ' + port);
+    });
+
+bài 2: 
+
