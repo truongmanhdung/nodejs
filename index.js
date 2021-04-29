@@ -1,17 +1,14 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var low = require('lowdb');
+var shortid = require('shortid')
+var FileSync = require('lowdb/adapters/FileSync');
+var adapter = new FileSync('db.json');
+db = low(adapter);
+db.defaults({users: []}).write();
 var port = 3000;
-var users= [
-    { id: 1, name: 'dũng'},
-    { id: 2, name: 'hoàng'},
-    { id: 3, name: 'manh'},
-    { id: 4, name: 'anh'},
-    { id: 5, name: 'huy'},
-    { id: 6, name: 'quốc'},
-    { id: 7, name: 'linh'},
-    { id: 8, name: 'nam'},
-];
+
 app.set('view engine', 'pug')
 app.set('views', './views')
 app.use(bodyParser.json());
@@ -24,7 +21,7 @@ app.get('/', function(request, response){
 
 app.get('/users',function(request,response){
     response.render('users/index',{
-        users: users
+        users: db.get('users').value()
     });
 });
 
@@ -39,13 +36,22 @@ app.get('/users/search',function(request,response){
 });
 
 app.get('/users/create',function(request,response){
-    response.render('users/create',{
+    response.render('users/create');
+});
+app.get('/users/:id',function(request,response){
+    var id = request.params.id;
+    var user = db.get('users').find({id: id}).value();
+    response.render('users/view',{
+        user: user
     });
-    app.post('/users/create',function(request,response){
-        users.push(request.body);
-        response.redirect("./")
-    })
-})
+});
+
+app.post('/users/create',function(request,response){
+    request.body.id = shortid.generate();
+    db.get('users').push(request.body).write();
+    response.redirect('/users');
+});
+
 
 app.listen(port, function (){
     console.log('Server listening on port ' + port);
