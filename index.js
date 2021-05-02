@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var userRoute = require('./routes/user.route');
-
+var userRoute = require('./routes/user.router');
 var db = require('./db');
 
 var port = 3000;
