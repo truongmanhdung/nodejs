@@ -10,7 +10,7 @@ app.set('views', './views');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(express.static('public'));
 app.use('/users',userRoute);
 app.get('/', function(request, response){
     response.render('index',{
