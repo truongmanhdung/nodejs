@@ -26,6 +26,20 @@ module.exports.createget = function(request,response){
 };
 module.exports.createpost = function(request,response){
     request.body.id = shortid.generate();
+    var errors = [];
+    if(!request.body.name){
+        errors.push('name is required.');
+    }
+    if(!request.body.phone){
+        errors.push('phone is required.');
+    }
+    if(errors.length){
+        response.render('users/create',{
+            errors: errors,
+            values: request.body
+        });
+        return;
+    }
     db.get('users').push(request.body).write();
     response.redirect('/users');
 };
