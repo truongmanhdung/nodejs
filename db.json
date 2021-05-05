@@ -2,13 +2,10 @@
   "users": [
     {
       "name": "dũng trương mạnh",
-      "phone": "0365727226",
-      "id": "31BnA4dkF"
-    },
-    {
-      "name": "dũng trương mạnh",
       "phone": "03545445",
-      "id": "ddjzHPeCh"
+      "id": "ddjzHPeCh",
+      "email": "dung@0401",
+      "password": "123"
     }
   ]
 }

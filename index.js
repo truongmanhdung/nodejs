@@ -2,7 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var userRoute = require('./routes/user.router');
-var db = require('./db');
+
+var authMiddleware = require('./middlewares/auth.middleware');
+var authRoute = require('./routes/auth.router');
 
 var port = 3000;
 var app = express();
@@ -13,7 +15,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(express.static('public'));
-app.use('/users',userRoute);
+app.use('/users',authMiddleware.requireAuth, userRoute);
+app.use('/auth', authRoute);
 app.get('/', function(request, response){
     response.render('index',{
         name: 'AAA',
