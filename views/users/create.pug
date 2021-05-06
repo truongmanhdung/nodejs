@@ -11,6 +11,12 @@ block header
                 label(for="name") Name 
                 input(type="text", class="form-control mb-2", name="name", value=values ? values.name : '')
             .form-group
+                label(for="email") Email 
+                input(type="text", class="form-control mb-2", name="email", value=values ? values.email : '')
+            .form-group
+                label(for="password") Password 
+                input(type="password", class="form-control mb-2", name="password", value=values ? values.password : '')
+            .form-group
                 label(for="phone") Phone 
                 input(type="text", class="form-control mb-2", name="phone", value=values ? values.phone : '')
             button(class="btn btn-primary") Create

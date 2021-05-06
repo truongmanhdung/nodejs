@@ -1,3 +1,4 @@
+var md5 = require('md5');
 var db = require('../db');
 module.exports.login = function(request,response){
     response.render('auth/login',{
@@ -18,7 +19,8 @@ module.exports.postlogin = function(request,response){
         });
             return;
     }
-    if(user.password!==password){
+    var hardPassword = md5(password);
+    if(user.password!==hardPassword){
         response.render('auth/login', {
             errors: [
                 'Wrong password.'

@@ -2,10 +2,17 @@
   "users": [
     {
       "name": "dũng trương mạnh",
-      "phone": "03545445",
-      "id": "ddjzHPeCh",
+      "email": "truongmanhdung04@gmail.com",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "phone": "0365727226",
+      "id": "04azk_Zgk"
+    },
+    {
+      "name": "dung",
       "email": "dung@0401",
-      "password": "123"
+      "password": "202cb962ac59075b964b07152d234b70",
+      "phone": "0365727226",
+      "id": "gZiuT96r0"
     }
   ]
 }
