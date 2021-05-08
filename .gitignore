@@ -1,0 +1,5 @@
+# các file ko đẩy lên github
+
+node_modules
+db.json
+.env
