@@ -6,7 +6,7 @@ block header
             each error in errors
                 .alert.alert-danger= error
              
-        form(action="/users/create", method="post")
+        form(action="/users/create", method="post", enctype="multipart/form-data")
             .form-group
                 label(for="name") Name 
                 input(type="text", class="form-control mb-2", name="name", value=values ? values.name : '')
@@ -19,4 +19,7 @@ block header
             .form-group
                 label(for="phone") Phone 
                 input(type="text", class="form-control mb-2", name="phone", value=values ? values.phone : '')
+            .form-group
+                label(for="avatar") Avatar 
+                input(type="file", class="form-control mb-2", name="avatar")
             button(class="btn btn-primary") Create

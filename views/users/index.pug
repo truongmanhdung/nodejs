@@ -11,11 +11,14 @@ block header
             tr
                 th Name
                 th Phone
+                th Avatar
                 th Action
             each user in users
                 tr  
                     td= user.name
                     td= user.phone
+                    td
+                        img(src=user.avatar, width="80", alt="")
                     td
                         a(href = "/users/" + user.id).btn.btn-Light view
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js",integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf",crossorigin="anonymous")

@@ -27,6 +27,7 @@ module.exports.createget = function(request,response){
 };
 module.exports.createpost = function(request,response){
     request.body.id = shortid.generate();
+    request.body.avatar = request.file.path.split("\\").splice(1).join('\\');
     request.body.password = md5(request.body.password);
     db.get('users').push(request.body).write();
     response.redirect('/users');
