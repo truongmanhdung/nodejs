@@ -724,5 +724,13 @@
       "description": "ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit",
       "price": 7556075
     }
+  ],
+  "sessions": [
+    {
+      "id": "pqjzfVRnq",
+      "cart": {
+        "e134ec14-fd78-4d9e-a28f-9ce8824c96af": 1
+      }
+    }
   ]
 }
